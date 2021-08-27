@@ -51,7 +51,7 @@ SHIP2 = rename_features(SHIP2, SHIP2_labels)
 SHIP3 = rename_features(SHIP3, SHIP3_labels)
 TREND0 = rename_features(TREND0, TREND0_labels)
 
-
+# Function to read in the SNP data
 def read_SNP(dir):
     SNP = pd.read_csv(dir)
     SNP = SNP.drop(["IID", "PHENO", "CNT", "CNT2"], axis=1)
@@ -62,7 +62,7 @@ def read_SNP(dir):
 SHIP_SNP = read_SNP("D:\\Files\\Work\\Pycharm Projects\\Dissertation\\snp_score\\SHIP\\results\\SHIP_ft4_snp_scores.csv")
 TREND_SNP = read_SNP("D:\\Files\\Work\\Pycharm Projects\\Dissertation\\snp_score\\TREND\\results\\TREND_ft4_snp_scores.csv")
 
-
+# Function to merge the SNP data with participant data.
 def merge_SNP(data, SNP):
     print("Before SNP merge: ", data.shape)
     SNP_df = pd.merge(data, SNP, on="PID")
@@ -81,7 +81,7 @@ SHIP3 = merge_SNP(SHIP3, SHIP_SNP)
 print(colored("\nTREND0", "yellow"))
 TREND0 = merge_SNP(TREND0, TREND_SNP)
 
-
+# function to create list of numerical features
 def create_num_names(labels):
     num_col_names = labels.num_feat.tolist()
     num_col_list = [num_col_names for num_col_names in num_col_names if
@@ -96,7 +96,7 @@ SHIP3_num = create_num_names(SHIP3_labels)
 TREND0_num = create_num_names(TREND0_labels)
 
 
-
+# function that removes unwanted features
 def data_cleaner(data, labels):
     excluded_col_names = labels.excl_feat.tolist()
     excl_list = [excluded_col_names for excluded_col_names in excluded_col_names if
@@ -109,7 +109,7 @@ def data_cleaner(data, labels):
     print("df after character and date features removed", df2.shape)
     return df2
 
-
+# function that imputes features and removes features that are above a missingness threshold
 def data_imputer(data, numf_list, pm, nn):
     imputer = KNNImputer(n_neighbors=nn)
     participants = data.shape[0]
@@ -124,7 +124,7 @@ def data_imputer(data, numf_list, pm, nn):
     df = data.drop(drop_list, axis=1)
     return df
 
-
+# function to winsorise numerical features
 def data_winsorize(data, labels, ll, ul):
     win_col_names = labels.win.tolist()
     win_col_list = [win_col_names for win_col_names in win_col_names if
