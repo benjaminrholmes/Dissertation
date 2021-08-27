@@ -1,0 +1,13 @@
+ft4_snp1.bed ft4_snp1.bim ft4_snp1.fam
+ft4_snp2.bed ft4_snp2.bim ft4_snp2.fam
+ft4_snp3.bed ft4_snp3.bim ft4_snp3.fam
+ft4_snp4.bed ft4_snp4.bim ft4_snp4.fam
+ft4_snp6.bed ft4_snp6.bim ft4_snp6.fam
+ft4_snp8.bed ft4_snp8.bim ft4_snp8.fam
+ft4_snp9.bed ft4_snp9.bim ft4_snp9.fam
+ft4_snp12.bed ft4_snp12.bim ft4_snp12.fam
+ft4_snp14.bed ft4_snp14.bim ft4_snp14.fam
+ft4_snp15.bed ft4_snp15.bim ft4_snp15.fam
+ft4_snp16.bed ft4_snp16.bim ft4_snp16.fam
+ft4_snp17.bed ft4_snp17.bim ft4_snp17.fam
+ft4_snp18.bed ft4_snp18.bim ft4_snp18.fam
